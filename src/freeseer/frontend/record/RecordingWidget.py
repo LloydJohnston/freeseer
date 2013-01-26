@@ -123,6 +123,18 @@ class RecordingWidget(QtGui.QWidget):
         self.filterBarLayoutRow_1.addWidget(self.roomComboBox)
         self.filterBarLayoutRow_1.addWidget(self.dateLabel)
         self.filterBarLayoutRow_1.addWidget(self.dateComboBox)
+
+        self.filterBarLayoutRow_3 = QtGui.QHBoxLayout()
+        self.filterBarLayout.addLayout(self.filterBarLayoutRow_3)
+        self.allRoomLabel = QtGui.QLabel("Show all talks?")
+        self.allRoomLabel.setSizePolicy(QtGui.QSizePolicy.Maximum, QtGui.QSizePolicy.Fixed)
+        self.allRoomCheckBox = QtGui.QCheckBox()
+        self.allRoomCheckBox.setFont(boldFont)
+        self.allRoomCheckBox.setSizePolicy(QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Maximum)
+        #self.allRoomCheckBox.setSizeAdjustPolicy(QtGui.QComboBox.AdjustToMinimumContentsLength)
+        self.filterBarLayoutRow_3.addWidget(self.allRoomLabel)
+        self.filterBarLayoutRow_3.addWidget(self.allRoomCheckBox)
+
         
         self.filterBarLayoutRow_2 = QtGui.QHBoxLayout()
         self.filterBarLayout.addLayout(self.filterBarLayoutRow_2)
@@ -134,6 +146,8 @@ class RecordingWidget(QtGui.QWidget):
         self.talkComboBox.setSizeAdjustPolicy(QtGui.QComboBox.AdjustToMinimumContentsLength)
         self.filterBarLayoutRow_2.addWidget(self.talkLabel)
         self.filterBarLayoutRow_2.addWidget(self.talkComboBox)
+        
+
         
         # Preview Layout
         self.previewLayout = QtGui.QHBoxLayout()

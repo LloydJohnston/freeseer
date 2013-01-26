@@ -291,6 +291,15 @@ class QtDBConnector():
             return query.value(0)
         else:
             return None
+            
+    def get_all_talks_model (self, event):
+        """ 
+        Returns all the talks for a given event.
+        """
+        self.talksModel = QtSql.QSqlQueryModel()
+        self.talksModel.setQuery("SELECT (Speaker || ' - ' || Title), Id FROM presentations \
+                                   WHERE Event='%s' ORDER BY Time ASC" % (event))
+        return self.talksModel
         
         
     #

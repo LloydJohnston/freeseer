@@ -473,7 +473,7 @@ class RecordApp(QtGui.QMainWindow):
 
     ###
     ### Talk Related
-    ###
+    ###Lloyd
     
     def set_talk_tooltip(self, talk):
         self.mainWidget.talkComboBox.setToolTip(talk)
@@ -488,6 +488,8 @@ class RecordApp(QtGui.QMainWindow):
         self.current_event = event
 
         model = self.core.db.get_rooms_model(self.current_event)
+        #model = self.core.db.get_events_model()
+        #model = self.core.db.get_talks_by_event(self.current_event)
         self.mainWidget.roomComboBox.setModel(model)
         
         #self.connect(self.mainWidget.roomComboBox, QtCore.SIGNAL('currentIndexChanged(const QString&)'), self.load_talks_from_room)
@@ -502,8 +504,10 @@ class RecordApp(QtGui.QMainWindow):
         self.current_room = str(self.mainWidget.roomComboBox.currentText())
         self.current_date = date
         
-        model = self.core.db.get_talks_model(self.current_event, self.current_room, self.current_date)
+        #model = self.core.db.get_talks_model(self.current_event, self.current_room, self.current_date)
+        model = self.core.db.get_all_talks_model(self.current_event)
         self.mainWidget.talkComboBox.setModel(model)
+    
         
     ###
     ### Report Failure
